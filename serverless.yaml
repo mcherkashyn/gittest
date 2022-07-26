@@ -1,0 +1,17 @@
+service: mystatictest.jito.design
+
+frameworkVersion: "=3.21.0"
+
+provider:
+  name: aws
+  region: us-east-1
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: mystatictest.jito.design
+    distributionFolder: build
+    indexDocument: index.html
+    errorDocument: index.html
