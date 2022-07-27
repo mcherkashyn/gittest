@@ -6,6 +6,9 @@ on:
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
+    env:
+      AWS_KEY: ${{ secrets.AWS_KEY }}
+      AWS_SECRET: ${{ secrets.AWS_SECRET }}
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
@@ -16,7 +19,7 @@ jobs:
     - name: Install Serverless-finch plugin
       run: npm install --save serverless-finch
     - name: Serverless AWS authentication
-      run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
+      run: serverless config credentials --provider aws --key ${{ env.AWS_KEY }} --secret ${{ env.AWS_SECRET }}
     - name: Install NPM dependencies
       run: npm install
     - name: Deploy Serverless functions
