@@ -14,13 +14,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '16.x'
-    - name: Install Serverless Framework
-      run: npm install -g serverless
-    - name: Install Serverless-finch plugin
-      run: npm install --save serverless-finch
-    - name: Serverless AWS authentication
-      run: serverless config credentials --provider aws --key ${{ env.AWS_KEY }} --secret ${{ env.AWS_SECRET }}
-    - name: Install NPM dependencies
-      run: npm install
-    - name: Deploy Serverless functions
-      run: serverless client deploy --no-confirm
+    - name: Build and Deploy
+      run: |
+        ./deploy.sh
+    
