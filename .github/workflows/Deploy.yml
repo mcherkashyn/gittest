@@ -16,5 +16,5 @@ jobs:
         node-version: '16.x'
     - name: Build and Deploy
       run: |
-        ./deploy.sh
+        ./scripts/deploy.sh
     
