@@ -20,6 +20,4 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
     - name: Deploy Lambda functions
-      run: serverless client deploy
-    - name: Confirm deploy
-      run: y
+      run: serverless client deploy && y
