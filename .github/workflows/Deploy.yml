@@ -20,4 +20,4 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
     - name: Deploy Serverless functions
-      run: serverless client deploy && y
+      run: serverless client deploy --no-confirm
