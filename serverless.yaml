@@ -11,7 +11,7 @@ plugins:
 
 custom:
   client:
-    bucketName: testbuckettest2
+    bucketName: testbuckettest3
     distributionFolder: build
     indexDocument: index.html
     errorDocument: index.html
