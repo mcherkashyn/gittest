@@ -1,4 +1,4 @@
-name: Docker-container-build
+name: Docker-container-build-and-push-to-AWS-ECR
 on:
   push:
     branches:
@@ -6,17 +6,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-   # env:
-    #  AWS_KEY: ${{ secrets.AWS_KEY }}
-     # AWS_SECRET: ${{ secrets.AWS_SECRET }}
+    env:
+      AWS_KEY: ${{ secrets.AWS_KEY }}
+      AWS_SECRET: ${{ secrets.AWS_SECRET }}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
       with:
-        python-version: '3.6' 
-   # - name: Check-Docker-version
-    #  run: docker --version    
-    - name: Docker-container-build
+        python-version: '3.6'     
+    - name: Docker-container-build-and-push-to-AWS-ECR
       run: |
         ./scripts/build.sh
     
