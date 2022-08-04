@@ -1,20 +1,22 @@
-name: Deploy-S3-serverless
+name: Docker-container-build
 on:
   push:
     branches:
       - main
 jobs:
-  deploy-dev:
+  build:
     runs-on: ubuntu-latest
-    env:
-      AWS_KEY: ${{ secrets.AWS_KEY }}
-      AWS_SECRET: ${{ secrets.AWS_SECRET }}
+   # env:
+    #  AWS_KEY: ${{ secrets.AWS_KEY }}
+     # AWS_SECRET: ${{ secrets.AWS_SECRET }}
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
-        node-version: '16.x'
-    - name: Build and Deploy
-      run: |
-        ./scripts/deploy.sh
+        python-version: '3.6' 
+    - name: Check Docker version
+      run: docker --version    
+      
+     # run: |
+      #  ./scripts/deploy.sh
     
