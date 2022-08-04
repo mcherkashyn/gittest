@@ -28,4 +28,6 @@ jobs:
         #role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
        # role-duration-seconds: 1200
         #role-session-name: MySessionName
+    - name: AWS ECR Authentication command run
+    - run: aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 746279167188.dkr.ecr.eu-north-1.amazonaws.com
     
